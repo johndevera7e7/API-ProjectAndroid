@@ -1,6 +1,5 @@
 package com.example.api_list_googlemaps
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,22 +20,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.api_list_googlemaps.ui.theme.API_listGoogleMapsTheme
-import com.example.api_list_googlemaps.view.DetailScreen
-import com.example.api_list_googlemaps.view.FavouritesScreen
-import com.example.api_list_googlemaps.view.ListScreen
-import com.example.api_list_googlemaps.view.SettingsScreen
-import navigation.Destinations
-import navigation.NavigationItem
-import navigation.NavigationWrapper
+import com.example.api_list_googlemaps.model.Item
+import com.example.api_list_googlemaps.navigation.Destinations
+import com.example.api_list_googlemaps.navigation.NavigationItem
+import com.example.api_list_googlemaps.navigation.NavigationWrapper
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +49,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var selectedItem: Int by remember { mutableIntStateOf(0) }
+    var selectedNASAItem by remember { mutableStateOf<Item?>(null) }
+    var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf(
         NavigationItem("List", Icons.Default.Home, Destinations.ListScreen, 0),
         NavigationItem("Favourites", Icons.Default.Person, Destinations.FavouritesScreen, 1),

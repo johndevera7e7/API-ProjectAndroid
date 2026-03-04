@@ -1,5 +1,8 @@
-package navigation
+package com.example.api_list_googlemaps.navigation
 
+import com.example.api_list_googlemaps.model.Data
+import com.example.api_list_googlemaps.model.Item
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 sealed class Destinations {
@@ -10,5 +13,5 @@ sealed class Destinations {
     @Serializable
     object SettingsScreen:Destinations()
     @Serializable
-    data class DetailScreen(val nomDetail: String) : Destinations()
+    data class DetailScreen(val ItemName: String): Destinations()
 }

@@ -1,5 +1,5 @@
 package com.example.api_list_googlemaps.model
 
-data class NasaJSON(
+data class NasaClass(
     val collection: Collection
 )

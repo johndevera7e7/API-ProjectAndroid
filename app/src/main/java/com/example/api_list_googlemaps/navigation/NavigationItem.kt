@@ -1,4 +1,4 @@
-package navigation
+package com.example.api_list_googlemaps.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
