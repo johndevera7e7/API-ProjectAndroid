@@ -25,11 +25,10 @@ fun NavigationWrapper(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Destinations.ListScreen) {
         composable<Destinations.ListScreen> {
             ListScreen(
+                viewModel = viewModel(),
                 onNavegarAlDetall = { NasaProducte ->
                     navController.navigate(Destinations.DetailScreen(ItemName = ""))
-                },
-                viewModel = viewModel(),
-                nasa = selectedNASAItem!!
+                }
             )
         }
 

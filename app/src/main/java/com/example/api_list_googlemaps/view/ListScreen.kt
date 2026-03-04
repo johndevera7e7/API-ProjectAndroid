@@ -26,7 +26,6 @@ import com.example.api_list_googlemaps.viewmodel.GameViewModel
 @Composable
 fun ListScreen(
     viewModel: GameViewModel,
-    nasa: Data,
     onNavegarAlDetall: (Data) -> Unit
 ) {
     var selectedItem by remember { mutableStateOf<Item?>(null)}
@@ -43,7 +42,7 @@ fun ListScreen(
                     items(viewModel.nasaList) { item ->
                         NasaItem(
                             item,
-                            onItemClick = { onNavegarAlDetall(nasa) }
+                            onItemClick = { onNavegarAlDetall }
                         )
 
 
